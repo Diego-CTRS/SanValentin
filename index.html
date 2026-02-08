@@ -1,0 +1,65 @@
+<script>
+  let noScale = 1;
+  let yesScale = 1;
+  let noClicks = 0;
+
+  const noTexts = [
+    "¿Segura? 😳",
+    "Oye no 😭",
+    "Belén piénsalo 😢",
+    "Esto ya es personal 😐",
+    "No funciona 😈"
+  ];
+
+  function shrinkNo() {
+    const noBtn = document.getElementById("no");
+    const yesBtn = document.getElementById("yes");
+
+    navigator.vibrate(200);
+
+    // Mover el NO
+    const x = Math.random() * 200 - 100;
+    const y = Math.random() * 200 - 100;
+    noBtn.style.transform = `translate(${x}px, ${y}px) scale(${noScale})`;
+
+    noScale -= 0.15;
+    yesScale += 0.2;
+
+    if (noClicks < noTexts.length) {
+      noBtn.textContent = noTexts[noClicks];
+    }
+
+    noClicks++;
+
+    if (noScale <= 0.2) {
+      noBtn.style.display = "none";
+      yesBtn.style.transform = "scale(2.5)";
+      yesBtn.textContent = "SÍ OBVIO 💖";
+    } else {
+      yesBtn.style.transform = `scale(${yesScale})`;
+    }
+  }
+
+  function sayYes() {
+    document.getElementById("loveSound").play();
+    document.body.innerHTML = `
+      <div>
+        <h1>🥰 SABÍA QUE DIRÍAS QUE SÍ, BELÉN 💖</h1>
+        <h2>No aceptamos un no 😌</h2>
+        <img src="foto.jpg" alt="Nosotros">
+        <h3>Prepárate para el mejor 14 de febrero 😏💘</h3>
+      </div>
+    `;
+  }
+
+  setInterval(() => {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "💖";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (3 + Math.random() * 3) + "s";
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 6000);
+  }, 300);
+</script>
