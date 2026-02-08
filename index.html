@@ -1,3 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>💘 Belén 💘</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Comic Sans MS', cursive;
+      background: linear-gradient(135deg, #ff758c, #ff7eb3);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      overflow: hidden;
+      color: white;
+    }
+
+    h1 {
+      font-size: 2em;
+      padding: 0 15px;
+    }
+
+    .buttons {
+      margin-top: 30px;
+    }
+
+    button {
+      font-size: 1.3em;
+      padding: 15px 30px;
+      margin: 10px;
+      border: none;
+      border-radius: 14px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    #yes {
+      background-color: #ff0055;
+      color: white;
+    }
+
+    #no {
+      background-color: #555;
+      color: white;
+    }
+
+    .heart {
+      position: absolute;
+      bottom: -20px;
+      font-size: 24px;
+      animation: float 5s linear infinite;
+      opacity: 0.8;
+    }
+
+    @keyframes float {
+      from {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      to {
+        transform: translateY(-110vh);
+        opacity: 0;
+      }
+    }
+
+    img {
+      max-width: 90%;
+      border-radius: 20px;
+      margin-top: 20px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    }
+  </style>
+</head>
+<body>
+
+  <div id="content">
+    <h1>💖 Belén, ¿quieres ser mi 14 de febrero? 💖</h1>
+    <div class="buttons">
+      <button id="yes" onclick="sayYes()">Sí 💘</button>
+      <button id="no" onclick="shrinkNo()">No 😢</button>
+    </div>
+  </div>
+
+  <audio id="loveSound">
+    <source src="https://www.soundjay.com/human/sounds/applause-8.mp3" type="audio/mpeg">
+  </audio>
+
 <script>
   let noScale = 1;
   let yesScale = 1;
@@ -63,3 +154,12 @@
     setTimeout(() => heart.remove(), 6000);
   }, 300);
 </script>
+
+</body>
+</html>
+
+
+
+
+
+
